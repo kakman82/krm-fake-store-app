@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <!-- Ürün fotoğrafı  -->
-        <v-col cols="2">
+        <v-col cols="2" sm="6">
           <v-img
             :src="product.image"
             contain

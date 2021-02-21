@@ -1,7 +1,7 @@
 <template>
   <v-stepper-content step="3">
     <v-list dense disabled>
-      <v-subheader class="title">Bilgiler</v-subheader>
+      <v-subheader class="title">Teslimat Bilgileri Detayı</v-subheader>
       <v-list-item-group color="primary">
         <v-list-item v-for="(value, name) in data" :key="name">
           <v-list-item-content>

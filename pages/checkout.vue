@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-15">
     <v-row>
       <v-col>
         <v-stepper v-model="step">

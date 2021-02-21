@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center mt-15">
     <v-overlay :value="overlay" class="flex-column">
       <p>Sipariş alınıyor...</p>
       <v-progress-circular indeterminate size="64" />

@@ -4,7 +4,7 @@
       <v-text-field
         v-model="data.name"
         :rules="[rules.required]"
-        label="Ad ve Soyad"
+        label="Teslim Edilecek Ad ve Soyad"
         clearable
         required
       >

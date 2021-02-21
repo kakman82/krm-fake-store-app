@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-btn color="primary" block @click="goToCheckout">
+    <v-btn
+      color="primary"
+      block
+      @click="goToCheckout"
+      :disabled="$store.state.cart.length === 0 ? true : false"
+    >
       Sepeti Onayla (₺ {{ cartTotal }})
     </v-btn>
     <v-card outlined class="my-4">
@@ -53,7 +58,12 @@
         </v-row>
       </v-card-text>
     </v-card>
-    <v-btn color="primary" block @click="goToCheckout">
+    <v-btn
+      color="primary"
+      block
+      @click="goToCheckout"
+      :disabled="$store.getters.getCartLength === 0 ? true : false"
+    >
       Sepeti Onayla (₺ {{ cartTotal }})
     </v-btn>
   </div>
