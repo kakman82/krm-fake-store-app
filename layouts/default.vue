@@ -14,6 +14,7 @@ import TheSnackbar from '~/components/TheSnackbar.vue'
 import TopNav from '~/components/TopNav.vue'
 
 export default {
+  name: 'default',
   components: { TopNav, TheSnackbar },
 }
 </script>

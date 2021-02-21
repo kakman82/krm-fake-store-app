@@ -21,6 +21,29 @@ export const mutations = {
     state.cart.push(product)
     //console.log(state.cart.length);
   },
+  removeProductFromCart(state, product){
+    state.cart =  state.cart.filter((prod)=>prod.id !== product.id)
+
+  },
+  
+    // adetdeki artış ve azalışı direk store üzerinden yaptık daha iyi oldu diğer türlü duplicete key uyarısı alıyordum ve storedaki productların idlerini eziyordum
+    // ref aldığım kod --> https://stackoverflow.com/questions/60788909/how-to-make-vuex-state-update-ui-when-its-updated
+  increment(state, productId) {
+    state.cart = state.cart.map(cartProduct => {
+      if (cartProduct.id === productId) {
+        cartProduct.quantity += 1;
+      }
+      return cartProduct;
+    });
+  },
+  decrement(state, productId) {
+    state.cart = state.cart.map(cartProduct => {
+      if (cartProduct.id === productId) {
+        cartProduct.quantity -= 1;
+      }
+      return cartProduct;
+    });
+  },
 
   setFilteredCategories(state, value) {
     // console.log(state.filteredCategories);
@@ -32,13 +55,15 @@ export const mutations = {
     // console.log(state.fakeProducts);
   },
   showSnackbar(state, settings) {
+
+    // mesajların birbirini önüne geçmesini engellemek için if ile mevcut ta show: true mu ya bakıyoruz, evet ise show:false yapıp sonra araya bir timeout süresi ekleyip -yarım saniye verdim - bekletip sonra diğer mesajı gösteriyoruz
     let timeout = 0
     if(state.snackbar.show){
       state.snackbar.show = false
       timeout = 500
     }
     setTimeout(() => {
-      state.snackbar.show = true
+      state.snackbar.show = settings.show
       state.snackbar.variant = settings.color
       state.snackbar.message = settings.text
     }, timeout)
@@ -62,14 +87,24 @@ export const actions = {
     // console.log('carttaki product id:', cartProduct);
     if(!cartProduct){
       commit('pushProductToCart', product)
-      commit('showSnackbar', { color: 'success', text: 'Ürün sepetinize başarıyla eklendi...'})
+      commit('showSnackbar', { show: true, color: 'success', text: 'Ürün sepetinize başarıyla eklendi...'})
     } else {
-      commit('showSnackbar',{ color: 'error', text: 'Bu ürün sepetinizde mevcut!'})
+      commit('showSnackbar',{ show: true, color: 'error', text: 'Bu ürün sepetinizde mevcut!'})
       //alert('Hoop ürün sepette zati...')
     } 
   },
-
-
+    // adetdeki artış ve azalışı direk store üzerinden yaptık daha iyi oldu diğer türlü duplicete key uyarısı alıyordum ve storedaki productların idlerini eziyordum
+    // ref aldığım kod --> https://stackoverflow.com/questions/60788909/how-to-make-vuex-state-update-ui-when-its-updated
+  incrementQuantity({ commit }, productId) {
+    commit("increment", productId);
+  },
+  decrementQuantity({ commit }, productId) {
+    commit("decrement", productId);
+  },
+  removeProduct({commit}, product){
+    commit('removeProductFromCart', product)
+    commit('showSnackbar', { show: true, color: 'primary', text: 'Ürün sepetinizden çıkarıldı!'})
+  }
 
 }
 
@@ -79,6 +114,14 @@ export const getters = {
   },
   getCart(state) {
     return state.cart
+  },
+  getCartTotalPriceWithoutFees(state){
+    let totalPrice = 0
+    let cartArray = state.cart
+    for (let index = 0; index <cartArray.length; index++) {
+       totalPrice += cartArray[index].price * cartArray[index].quantity
+    }
+    return totalPrice.toFixed(2)
   },
 
   getFilteredProducts(state){

@@ -1,7 +1,12 @@
 <template>
   <div>
     <v-app-bar dense fixed>
-      <v-toolbar-title>KMC-Katalog</v-toolbar-title>
+      <v-toolbar-title>
+        <!-- buradaki depressed butona basıldığındaki gölgeyi plain de basıldıktan sonraki hover gölgesini iptal ediyor ref v-btn api dokümanı  -->
+        <v-btn to="/" plain>
+          <v-img contain width="80px" src="/kmc-logo.png"></v-img>
+        </v-btn>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
 
       <!-- mobile görünüm için eklediğim span class vuetify derslerinden  -->
@@ -42,7 +47,7 @@
           link
         >
           <v-list-item-icon>
-            <v-icon small>{{ item.icon }}</v-icon>
+            <v-icon class="flex-end" small>{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content
@@ -80,4 +85,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.v-list-item__icon {
+  align-self: flex-end;
+}
+</style>

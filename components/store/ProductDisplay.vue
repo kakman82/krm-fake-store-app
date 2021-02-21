@@ -8,25 +8,19 @@
         v-for="product in $store.getters.getFilteredProducts"
         :key="product.title"
       >
-        <!-- <vertical-product
+        <vertical-product
           :product="product"
           :addToCart="addToCart"
-        ></vertical-product> -->
-
-        <vertical-action-card
-          :product="product"
-          :addToCart="addToCart"
-        ></vertical-action-card>
+        ></vertical-product>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import VerticalActionCard from '../cards/VerticalActionCard.vue'
 import VerticalProduct from '../cards/VerticalProduct'
 export default {
-  components: { VerticalProduct, VerticalActionCard },
+  components: { VerticalProduct },
   methods: {
     addToCart(product, quantity) {
       // number a çevirmek için 1 ile çarptım ve bu şekilde mevcut product objesine quantity i de ekledim

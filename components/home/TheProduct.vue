@@ -16,15 +16,10 @@
             v-for="product in $store.state.fakeProducts.slice(0, 3)"
             :key="product.id"
           >
-            <!-- <vertical-product
+            <vertical-product
               :product="product"
               :addToCart="addToCart"
-            ></vertical-product> -->
-
-            <vertical-action-card
-              :product="product"
-              :addToCart="addToCart"
-            ></vertical-action-card>
+            ></vertical-product>
           </v-col>
         </v-row>
       </v-col>
@@ -33,10 +28,9 @@
 </template>
 
 <script>
-import VerticalActionCard from '../cards/VerticalActionCard.vue'
 import VerticalProduct from '../cards/VerticalProduct'
 export default {
-  components: { VerticalProduct, VerticalActionCard },
+  components: { VerticalProduct },
 
   methods: {
     // sepete atılan productun tamamı yani tüm bilgileri ile seçilen adet bilgisi vertical-action-card dan buraya gelecek, buradan action ile store a gidecek
