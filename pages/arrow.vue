@@ -16,12 +16,12 @@
           <div class="my-4 subtitle-1" style="font-weight: bold">
             {{ arrow.currency }} {{ arrow.price }}
           </div>
-          <div class="my-4 subtitle-1">
-            Min Adet: {{ arrow.minQty }} <br />
-            Max Adet: {{ arrow.maxQty }}
+          <div class="my-4 caption">
+            Min Sipariş Adedi: {{ arrow.minQty }} <br />
+            Max Sipariş Adedi: {{ arrow.maxQty }}
           </div>
 
-          <div>
+          <div class="my-4 text-body-1">
             {{ arrow.desc }}
           </div>
         </v-card-text>
@@ -76,7 +76,7 @@ export default {
       rules: {
         required: (value) => !!value || 'Adet girişi yapınız.',
         min(value, min) {
-          return value > min || `Sipariş ${min} adetten az olmamalıdır.`
+          return value >= min || `Sipariş ${min} adetten az olmamalıdır.`
         },
         max(value, max) {
           return value <= max || `Sipariş ${max} adeti geçemez.`
