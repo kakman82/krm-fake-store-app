@@ -25,7 +25,7 @@
             </div>
             <v-spacer></v-spacer>
             <div class="d-flex space-between">
-              <div class="d-flex align-center mt-3 mr-5" style="width: 110px">
+              <div class="d-flex align-center mt-3 mr-5" style="width: 130px">
                 <v-text-field
                   class="text-center"
                   v-model="newQuantity"
@@ -52,13 +52,13 @@
                   >></v-text-field
                 >
               </div>
-              <div class="d-flex align-center">
+              <div class="d-flex align-center" style="width: 120px">
                 <v-card-title class="text-body-1 font-weight-bold"
                   >₺ {{ productTotal }}</v-card-title
                 >
               </div>
 
-              <div class="d-flex align-center">
+              <div class="d-flex align-center" style="width: 50px">
                 <v-tooltip top>
                   <template v-slot:activator="{ on, attrs }">
                     <v-btn
@@ -72,7 +72,7 @@
                       <v-icon>mdi-trash-can-outline</v-icon>
                     </v-btn>
                   </template>
-                  <span>Sepetten Sil</span>
+                  <span>Sepetten Çıkar</span>
                 </v-tooltip>
               </div>
             </div>
