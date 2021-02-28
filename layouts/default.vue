@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <top-nav></top-nav>
-
     <v-main>
       <Nuxt />
       <the-snackbar></the-snackbar>

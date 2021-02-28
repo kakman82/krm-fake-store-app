@@ -87,6 +87,9 @@ export default {
     },
     submitOrder() {
       this.$router.push({ name: 'thankyou' })
+      setTimeout(() => {
+        this.$store.commit('resetCart')
+      }, 3000)
     },
   },
 }

@@ -39,10 +39,23 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
+ 
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // proxy: true, // Can be also an object with default options
+    // proxyHeaders: false,
+    // credentials: false
+  },
+
+  proxy: {
+    // '/api/': 'http://api.arrow.com',
+    // '/api/': 'http://api.example.com',
+
+  },
+
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -70,5 +83,10 @@ export default {
   server: {
     host: '0',
     port: 9000
+  },
+  axios: {
+    baseURL: 'https://api.arrow.com',
+    proxyHeaders: false,
+    credentials: false
   }
 }

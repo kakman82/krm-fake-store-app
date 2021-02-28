@@ -78,6 +78,7 @@ export default {
       items: [
         { title: 'Ana Sayfa', link: '/', icon: 'mdi-home-circle' },
         { title: 'Ürünler', link: 'store', icon: 'mdi-storefront' },
+        { title: 'Arrow', link: 'arrow', icon: 'mdi-arrow-collapse-right' },
         { title: 'Sepet', link: 'cart', icon: 'mdi-cart-arrow-down' },
       ],
     }

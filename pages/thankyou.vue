@@ -8,6 +8,7 @@
     <v-container v-if="!overlay">
       <v-row>
         <v-col sm="6" offset-sm="3" xl="4" offset-xl="4">
+          <h1>Siparişiniz alınmıştır.</h1>
           <h2>
             Siparişiniz en kısa sürede ulaştırılacaktır. <br />
             Teşekkür eder, sağlıklı günler dileriz. <br />

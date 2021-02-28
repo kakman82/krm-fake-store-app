@@ -11,7 +11,8 @@ export const state = () => ({
     products: sampleProducts,
     // ref. https://fakestoreapi.com/
     fakeProducts: [],
-    filteredCategories: ''
+    filteredCategories: '',
+    arrowProducts : []
 
 })
 
@@ -21,6 +22,7 @@ export const mutations = {
     state.cart.push(product)
     //console.log(state.cart.length);
   },
+
   removeProductFromCart(state, product){
     state.cart =  state.cart.filter((prod)=>prod.id !== product.id)
 
@@ -54,6 +56,10 @@ export const mutations = {
     state.fakeProducts = payload
     // console.log(state.fakeProducts);
   },
+  setArrowProducts(state, payload){
+    state.arrowProducts = payload
+
+  },
   showSnackbar(state, settings) {
 
     // mesajların birbirini önüne geçmesini engellemek için if ile mevcut ta show: true mu ya bakıyoruz, evet ise show:false yapıp sonra araya bir timeout süresi ekleyip -yarım saniye verdim - bekletip sonra diğer mesajı gösteriyoruz
@@ -67,17 +73,45 @@ export const mutations = {
       state.snackbar.variant = settings.color
       state.snackbar.message = settings.text
     }, timeout)
+  },
+
+  resetCart(state){
+    state.cart = []
   }
 }
 
 export const actions = {
   async nuxtServerInit({commit}){
-    const response = await this.$axios.get('https://fakestoreapi.com/products')
+    const fakeProductsApi =  this.$axios.get('https://fakestoreapi.com/products')
     //console.log(response.data[1].category);
-    const products = response.data
-    commit('setProducts', products)
-  },
+    // const products = response.data
 
+    const arrowProductsApi = this.$axios.get(
+      'http://api.arrow.com/itemservice/v4/en/search/token',
+      {
+        params: {
+          search_token: 'bav99-7-',
+          login: 'kmc-grup',
+          apikey:
+            '337bbb7e77e9fff93546c6749e76a42f82b42ab829c62e7b1ef56690a88d14f2',
+          // sitesinde remoteIp girişi vardı ama commente alınca da response geldi - gerek yokmuş :)
+          // remoteIp: '192.168.1.30:9000',
+        },
+      }
+    )
+    const [fakeProductResponse, arrowResponse] = await Promise.all([
+      fakeProductsApi,
+      arrowProductsApi,
+    ])
+
+    const fakeProducts = fakeProductResponse.data
+    const arrowProducts = arrowResponse.data.itemserviceresult.data
+    // console.log('arrow response: ', arrowProducts);  
+
+    commit('setProducts', fakeProducts)
+    commit('setArrowProducts', arrowProducts)
+  },
+  
   addProductToCart({commit, state}, product){
     // console.log('actionsa gelen product', product);
     // önce sepete bu ürün daha önce eklenmiş mi kontrol ediyoruz, bunun için de componentden gelen productın id ise cartdaki productın id sini check etmek için find ile bakıyoruz;

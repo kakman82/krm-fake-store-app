@@ -1,79 +1,86 @@
 <template>
-  <v-card class="d-flex flex-row pa-2 ma-3" width="850px">
-    <v-container>
-      <v-row>
-        <!-- Ürün fotoğrafı  -->
-        <v-col cols="2" sm="6">
-          <v-img
-            :src="product.image"
-            contain
-            height="120px"
-            width="120px"
-          ></v-img>
-        </v-col>
-        <!-- ürün adı ve birim fiyat bilgisi  -->
-        <v-col cols="5">
-          <v-card-title class="text-subtitle-1">{{
-            product.title
-          }}</v-card-title>
-          <v-card-subtitle>
-            Ürün Birim Fiyatı: ₺ {{ product.price }}<br />
-            Stok Adedi: 10
-          </v-card-subtitle>
-        </v-col>
-        <!-- Ürün adet artırma azaltma butonu  -->
-        <v-col cols="2" align-self="center" class="mt-7">
-          <v-text-field
-            class="text-center"
-            v-model="newQuantity"
-            readonly
-            solo
-            :placeholder="product.quantity.toString()"
-            prepend-icon="mdi-plus"
-            append-outer-icon="mdi-minus"
-            @click:prepend="
-              {
-                {
-                  newQuantity < 10 ? increaseQuantity(product) : ''
-                }
-              }
-            "
-            @click:append-outer="
-              {
-                {
-                  newQuantity > 1 ? decreaseQuantity(product) : ''
-                }
-              }
-            "
-          >
-          </v-text-field>
-        </v-col>
-        <!-- Ürün fiyat x adet bilgisi  -->
-        <v-col cols="2" align-self="center">
-          <v-card-title class="text-body-1 font-weight-bold"
-            >$ {{ productTotal }}</v-card-title
-          >
-        </v-col>
-        <!-- Sepetten sil butonu  -->
-        <v-col cols="1" align-self="center">
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                icon
-                color="error"
-                v-bind="attrs"
-                v-on="on"
-                @click="removeFromCart(product)"
-              >
-                <v-icon>mdi-trash-can-outline</v-icon>
-              </v-btn>
-            </template>
-            <span>Sil</span>
-          </v-tooltip>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+  <v-container class="mt-3">
+    <v-row min-width="100%">
+      <v-col>
+        <v-card outlined>
+          <div class="d-flex flex-wrap">
+            <div class="d-flex">
+              <v-img
+                :src="product.image"
+                class="ma-2"
+                contain
+                sizes="sm-3"
+                height="120px"
+                width="120px"
+              ></v-img>
+            </div>
+            <div class="d-flex align-center" style="width: 300px">
+              <div>
+                <v-card-title>{{ product.title }}</v-card-title>
+                <v-card-subtitle
+                  >Ürün Birim Fiyatı: ₺ {{ product.price }}</v-card-subtitle
+                >
+                <v-card-subtitle class="mt-n8">Stok Adedi: 10</v-card-subtitle>
+              </div>
+            </div>
+            <v-spacer></v-spacer>
+            <div class="d-flex space-between">
+              <div class="d-flex align-center mt-3 mr-5" style="width: 110px">
+                <v-text-field
+                  class="text-center"
+                  v-model="newQuantity"
+                  readonly
+                  dense
+                  solo
+                  :placeholder="product.quantity.toString()"
+                  prepend-icon="mdi-plus"
+                  append-outer-icon="mdi-minus"
+                  @click:prepend="
+                    {
+                      {
+                        newQuantity < 10 ? increaseQuantity(product) : ''
+                      }
+                    }
+                  "
+                  @click:append-outer="
+                    {
+                      {
+                        newQuantity > 1 ? decreaseQuantity(product) : ''
+                      }
+                    }
+                  "
+                  >></v-text-field
+                >
+              </div>
+              <div class="d-flex align-center">
+                <v-card-title class="text-body-1 font-weight-bold"
+                  >₺ {{ productTotal }}</v-card-title
+                >
+              </div>
+
+              <div class="d-flex align-center">
+                <v-tooltip top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      icon
+                      rounded
+                      color="error"
+                      v-bind="attrs"
+                      v-on="on"
+                      @click="removeFromCart(product)"
+                    >
+                      <v-icon>mdi-trash-can-outline</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Sepetten Sil</span>
+                </v-tooltip>
+              </div>
+            </div>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -125,6 +132,7 @@ export default {
 
 <style scoped>
 .v-card__title {
+  font-size: small;
   word-break: break-word;
 }
 /* .card {

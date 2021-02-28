@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-4">
     <h2 class="mb-3" v-if="$store.state.cart.length > 0">Sepet Detayı</h2>
     <h2 v-else>
       Sepetinizde ürün bulunmamaktadır. <br />
