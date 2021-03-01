@@ -1,7 +1,6 @@
 export default {
   // bu ikisi netlify e deploy için gerekli: https://www.netlify.com/blog/2020/09/10/the-new-target-static-mode-in-nuxt/
   target:'static',
-  mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - KMC-Katalog',
@@ -85,9 +84,10 @@ export default {
     host: '0',
     port: 9000
   },
-  axios: {
-    baseURL: 'https://api.arrow.com',
-    proxyHeaders: false,
-    credentials: false
-  }
+  // arrow.com u store actions da nuxtserverinit içinde çağırınca buna gerek kalmadı ki zaten de işe yaramadı :) 
+  // axios: {
+  //   baseURL: 'https://api.arrow.com',
+  //   proxyHeaders: false,
+  //   credentials: false
+  // }
 }

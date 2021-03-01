@@ -1,7 +1,7 @@
 <template>
   <v-container class="mt-16 pa-16">
     <v-row v-for="(arrow, index) in arrowProducts" :key="index">
-      <v-card max-width="374">
+      <v-card max-width="370" max-height="800">
         <v-img
           class="ma-3"
           contain
@@ -37,9 +37,15 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-form ref="form" v-model="valid" lazy-validation>
+          <v-form
+            ref="form"
+            class="d-flex flex-row"
+            v-model="valid"
+            lazy-validation
+          >
             <v-text-field
-              solo
+              style="width: 200px"
+              label="Sipariş Adedi"
               type="number"
               v-model.number="quantity"
               :value="quantity"
@@ -50,8 +56,13 @@
               ]"
             >
             </v-text-field>
+
+            <v-spacer></v-spacer>
+
             <v-btn
+              class="align-self-center ml-8"
               :disabled="!valid"
+              small
               rounded
               color="success"
               @click="addToCart(arrow)"
