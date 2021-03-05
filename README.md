@@ -18,3 +18,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e625fcb-e7e4-4175-a67f-30767da86eff/deploy-status)](https://app.netlify.com/sites/krm-fake-store/deploys)
