@@ -94,8 +94,6 @@ export const actions = {
           login: 'kmc-grup',
           apikey:
             '337bbb7e77e9fff93546c6749e76a42f82b42ab829c62e7b1ef56690a88d14f2',
-          // sitesinde remoteIp girişi vardı ama commente alınca da response geldi - gerek yokmuş :)
-          // remoteIp: '192.168.1.30:9000',
         },
       }
     )

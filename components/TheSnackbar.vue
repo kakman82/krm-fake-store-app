@@ -3,7 +3,6 @@
     v-model="$store.state.snackbar.show"
     :color="$store.state.snackbar.variant"
     top
-    right
   >
     {{ $store.state.snackbar.message }}
     <template v-slot:action="{ attrs }">
