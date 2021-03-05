@@ -1,11 +1,10 @@
 <template>
   <div class="mt-4">
-    <h2 class="mb-3" v-if="$store.state.cart.length > 0">Sepet Detayı</h2>
+    <h2 class="mb-3" v-if="$store.state.cart.length > 0">Cart Details</h2>
     <h2 v-else>
-      Sepetinizde ürün bulunmamaktadır. <br />
-      Dilerseniz <nuxt-link to="/store">Ürünler</nuxt-link> sayfamızı ziyaret
-      edebilirsiniz. <br />
-      KMC Grup
+      There are no products selected in your cart <br />
+      Please visit <nuxt-link to="/store">Store</nuxt-link> page. <br />
+      KRM - Fake Store
     </h2>
 
     <v-row v-for="product in $store.state.cart" :key="product.id">

@@ -4,7 +4,7 @@
       <v-toolbar-title>
         <!-- buradaki depressed butona basıldığındaki gölgeyi plain de basıldıktan sonraki hover gölgesini iptal ediyor ref v-btn api dokümanı  -->
         <v-btn to="/" plain>
-          <v-img contain width="80px" src="/kmc-logo.png"></v-img>
+          <v-img contain width="50px" src="/fake-store.png"></v-img>
         </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -20,7 +20,7 @@
         class="hidden-xs-only"
       >
         <v-btn
-          v-if="item.title === 'Sepet' && $store.getters.getCartLength > 0"
+          v-if="item.title === 'Cart' && $store.getters.getCartLength > 0"
           :to="item.link"
           text
         >
@@ -51,7 +51,7 @@
           </v-list-item-icon>
 
           <v-list-item-content
-            v-if="item.title === 'Sepet' && $store.getters.getCartLength > 0"
+            v-if="item.title === 'Cart' && $store.getters.getCartLength > 0"
           >
             <v-list-item-title>
               <v-badge color="green" :content="$store.getters.getCartLength">
@@ -76,10 +76,9 @@ export default {
     return {
       drawer: false,
       items: [
-        { title: 'Ana Sayfa', link: '/', icon: 'mdi-home-circle' },
-        { title: 'Ürünler', link: 'store', icon: 'mdi-storefront' },
-        { title: 'Arrow', link: 'arrow', icon: 'mdi-arrow-collapse-right' },
-        { title: 'Sepet', link: 'cart', icon: 'mdi-cart-arrow-down' },
+        { title: 'Home', link: '/', icon: 'mdi-home-circle' },
+        { title: 'Store', link: 'store', icon: 'mdi-storefront' },
+        { title: 'Cart', link: 'cart', icon: 'mdi-cart-arrow-down' },
       ],
     }
   },

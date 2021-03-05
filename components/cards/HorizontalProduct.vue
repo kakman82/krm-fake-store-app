@@ -18,9 +18,9 @@
               <div>
                 <v-card-title>{{ product.title }}</v-card-title>
                 <v-card-subtitle
-                  >Ürün Birim Fiyatı: ₺ {{ product.price }}</v-card-subtitle
+                  >Unit Price: ₺ {{ product.price }}</v-card-subtitle
                 >
-                <v-card-subtitle class="mt-n8">Stok Adedi: 10</v-card-subtitle>
+                <v-card-subtitle class="mt-n8">Stock: 10</v-card-subtitle>
               </div>
             </div>
             <v-spacer></v-spacer>
@@ -72,7 +72,7 @@
                       <v-icon>mdi-trash-can-outline</v-icon>
                     </v-btn>
                   </template>
-                  <span>Sepetten Çıkar</span>
+                  <span>Remove from cart!</span>
                 </v-tooltip>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default {
         this.$store.commit('showSnackbar', {
           show: true,
           color: 'warning',
-          text: 'En fazla 10 adet seçilebilir!',
+          text: 'Should not be above 10!',
         })
       }
     },

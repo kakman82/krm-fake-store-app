@@ -119,9 +119,9 @@ export const actions = {
     // console.log('carttaki product id:', cartProduct);
     if(!cartProduct){
       commit('pushProductToCart', product)
-      commit('showSnackbar', { show: true, color: 'success', text: 'Ürün sepetinize başarıyla eklendi...'})
+      commit('showSnackbar', { show: true, color: 'success', text: 'Product added to the cart.'})
     } else {
-      commit('showSnackbar',{ show: true, color: 'error', text: 'Bu ürün sepetinizde mevcut!'})
+      commit('showSnackbar',{ show: true, color: 'error', text: 'This product is already in the cart!'})
       //alert('Hoop ürün sepette zati...')
     } 
   },
@@ -135,7 +135,7 @@ export const actions = {
   },
   removeProduct({commit}, product){
     commit('removeProductFromCart', product)
-    commit('showSnackbar', { show: true, color: 'primary', text: 'Ürün sepetinizden çıkarıldı!'})
+    commit('showSnackbar', { show: true, color: 'primary', text: 'Product is removed from the cart!'})
   }
 
 }

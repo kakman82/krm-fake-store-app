@@ -4,7 +4,7 @@
       <v-text-field
         v-model="data.address"
         :rules="[rules.required]"
-        label="Açık Adres"
+        label="Address"
         clearable
         required
       >
@@ -12,7 +12,7 @@
       <v-text-field
         v-model="data.state"
         :rules="[rules.required]"
-        label="İl"
+        label="State"
         clearable
         required
       >
@@ -20,15 +20,15 @@
       <v-text-field
         v-model="data.city"
         :rules="[rules.required]"
-        label="İlçe"
+        label="City"
         clearable
         required
       >
       </v-text-field>
       <v-btn :disabled="!valid" color="primary" @click="validate">
-        Devam Et
+        Continue
       </v-btn>
-      <v-btn text @click="previous"> Geri Dön </v-btn>
+      <v-btn text @click="previous"> Back </v-btn>
     </v-form>
   </v-stepper-content>
 </template>

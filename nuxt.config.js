@@ -3,8 +3,8 @@ export default {
   target:'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - KMC-Katalog',
-    title: 'KMC-Katalog',
+    titleTemplate: '%s - KRM-Fake Store',
+    title: 'KRM-Fake Store',
     htmlAttrs: {
       lang: 'en'
     },
@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/kmc-logo.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/fake-store.png' }
     ]
   },
 

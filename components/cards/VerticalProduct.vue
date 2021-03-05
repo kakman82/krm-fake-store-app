@@ -9,7 +9,7 @@
       </v-card-title>
     </v-container>
 
-    <v-card-subtitle> ₺ {{ product.price }}</v-card-subtitle>
+    <v-card-subtitle> $ {{ product.price }}</v-card-subtitle>
 
     <v-card-actions>
       <v-row class="d-flex">
@@ -28,9 +28,10 @@
             color="success"
             outlined
             @click="addToCart(product, quantity)"
+            width="150px"
           >
             <v-icon left small>mdi-basket-plus-outline</v-icon>
-            Sepete Ekle
+            Add to Cart
           </v-btn>
         </v-col>
         <v-spacer></v-spacer>
@@ -43,7 +44,7 @@
                 }}</v-icon>
               </v-btn>
             </template>
-            <span>Açıklamalar için tıkla!</span>
+            <span>Click for description</span>
           </v-tooltip>
         </v-col>
       </v-row>

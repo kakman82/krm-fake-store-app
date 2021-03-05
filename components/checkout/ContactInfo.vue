@@ -4,7 +4,7 @@
       <v-text-field
         v-model="data.name"
         :rules="[rules.required]"
-        label="Teslim Edilecek Ad ve Soyad"
+        label="Name"
         clearable
         required
       >
@@ -20,15 +20,15 @@
       <v-text-field
         v-model="data.phone"
         :rules="[rules.required, rules.phone]"
-        label="Telefon Numarası"
+        label="Phone Number"
         clearable
         required
       >
       </v-text-field>
       <v-btn :disabled="!valid" color="primary" @click="validate">
-        Devam Et
+        Continue
       </v-btn>
-      <v-btn text @click="$router.push({ name: 'cart' })"> İptal </v-btn>
+      <v-btn text @click="$router.push({ name: 'cart' })"> Cancel </v-btn>
     </v-form>
   </v-stepper-content>
 </template>

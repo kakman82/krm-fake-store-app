@@ -3,8 +3,8 @@
     <v-row>
       <v-col>
         <h2>
-          Ürünler
-          <v-btn to="store" color="primary" small text>Tamamını Gör</v-btn>
+          Products
+          <v-btn to="store" color="primary" small text>See more...</v-btn>
         </h2>
       </v-col>
     </v-row>

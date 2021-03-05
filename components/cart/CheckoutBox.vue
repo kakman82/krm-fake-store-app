@@ -6,54 +6,54 @@
       @click="goToCheckout"
       :disabled="$store.state.cart.length === 0 ? true : false"
     >
-      Sepeti Onayla (₺ {{ cartTotal }})
+      Confirm ($ {{ cartTotal }})
     </v-btn>
     <v-card outlined class="my-4">
-      <v-card-title>Sipariş Özeti</v-card-title>
+      <v-card-title>Payment Detailts</v-card-title>
       <v-card-text>
         <v-row>
           <v-col cols="6">
-            <v-subheader>Ürün Toplamı</v-subheader>
+            <v-subheader> Cart Total</v-subheader>
           </v-col>
           <v-col cols="6">
             <v-text-field
               :value="totalPrice"
-              prefix="₺"
+              prefix="$"
               readonly
             ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="6">
-            <v-subheader>İndirim</v-subheader>
+            <v-subheader>Discount</v-subheader>
           </v-col>
           <v-col cols="6">
-            <v-text-field :value="discount" prefix="₺"></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="6">
-            <v-subheader>Kdv(%18)</v-subheader>
-          </v-col>
-          <v-col cols="6">
-            <v-text-field :value="taxFee" prefix="₺"></v-text-field>
+            <v-text-field :value="discount" prefix="$"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="6">
-            <v-subheader>Kargo(%10)</v-subheader>
+            <v-subheader>Tax(%18)</v-subheader>
           </v-col>
           <v-col cols="6">
-            <v-text-field :value="shippingFee" prefix="₺"></v-text-field>
+            <v-text-field :value="taxFee" prefix="$"></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6">
+            <v-subheader>Shipping Cost(%10)</v-subheader>
+          </v-col>
+          <v-col cols="6">
+            <v-text-field :value="shippingFee" prefix="$"></v-text-field>
           </v-col>
         </v-row>
         <v-divider></v-divider>
         <v-row>
           <v-col cols="6">
-            <v-subheader class="font-weight-bold">Sepet Toplamı</v-subheader>
+            <v-subheader class="font-weight-bold">Total</v-subheader>
           </v-col>
           <v-col cols="6">
-            <v-text-field :value="cartTotal" prefix="₺"></v-text-field>
+            <v-text-field :value="cartTotal" prefix="$"></v-text-field>
           </v-col>
         </v-row>
       </v-card-text>
@@ -64,7 +64,7 @@
       @click="goToCheckout"
       :disabled="$store.getters.getCartLength === 0 ? true : false"
     >
-      Sepeti Onayla (₺ {{ cartTotal }})
+      Confirm ($ {{ cartTotal }})
     </v-btn>
   </div>
 </template>

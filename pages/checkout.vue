@@ -5,12 +5,12 @@
         <v-stepper v-model="step">
           <v-stepper-header>
             <v-stepper-step step="1" :complete="step > 1"
-              >İletişim Bilgileri</v-stepper-step
+              >Contact Info</v-stepper-step
             >
             <v-stepper-step step="2" :complete="step > 2"
-              >Teslimat Bilgileri</v-stepper-step
+              >Shipping Info</v-stepper-step
             >
-            <v-stepper-step step="3">Sipariş Özeti</v-stepper-step>
+            <v-stepper-step step="3">Summary</v-stepper-step>
           </v-stepper-header>
 
           <v-stepper-items>
@@ -59,21 +59,16 @@ export default {
       },
       // email ve tel no kontrolü için ayrı bir isEmail gibi paket yüklemeden bu pattern de kullanılabilir - vuetify da default mevcut bunu yerine https://vee-validate.logaretm.com/v3/ de kullanılabilir
       rules: {
-        required: (value) => !!value || 'Lütfen giriş yapınız.',
+        required: (value) => !!value || 'Please enter value!',
         // zip i formda kullanmadım yerine il - ilçe kullandım
         // zip: (value) => value.length == 5 || '5 karakter olmalıdır.',
         email: (value) => {
           const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          return (
-            pattern.test(value) || 'Lütfen geçerli bir email adresi giriniz.'
-          )
+          return pattern.test(value) || 'Please enter a valid email!'
         },
         phone: (value) => {
-          const pattern = /\d{10}/
-          return (
-            pattern.test(value) ||
-            'Lütfen geçerli bir telefon numarası giriniz.'
-          )
+          const pattern = /\d{15}/
+          return pattern.test(value) || 'Please enter a valid phone number'
         },
       },
     }

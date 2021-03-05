@@ -6,7 +6,7 @@
       class="pa-8"
       tile
     >
-      <h3>Kategoriler</h3>
+      <h3>Categories</h3>
 
       <v-checkbox
         dense
@@ -20,7 +20,7 @@
     </v-sheet>
     <v-expansion-panels v-else>
       <v-expansion-panel>
-        <v-expansion-panel-header> Kategoriler </v-expansion-panel-header>
+        <v-expansion-panel-header> Categories </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-checkbox
             dense

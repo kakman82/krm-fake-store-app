@@ -12,7 +12,7 @@
         v-bind="attrs"
         @click="$store.commit('showSnackbar', { show: false })"
       >
-        Kapat
+        CLOSE
       </v-btn>
     </template>
   </v-snackbar>
