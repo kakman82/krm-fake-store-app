@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Products</h3>
+    <h3>PRODUCTS</h3>
     <v-row class="mt-3">
       <v-col
         sm="6"

@@ -11,8 +11,7 @@ export const state = () => ({
     products: sampleProducts,
     // ref. https://fakestoreapi.com/
     fakeProducts: [],
-    filteredCategories: '',
-    arrowProducts : []
+    filteredCategories: ''
 
 })
 
@@ -56,10 +55,7 @@ export const mutations = {
     state.fakeProducts = payload
     // console.log(state.fakeProducts);
   },
-  setArrowProducts(state, payload){
-    state.arrowProducts = payload
-
-  },
+  
   showSnackbar(state, settings) {
 
     // mesajların birbirini önüne geçmesini engellemek için if ile mevcut ta show: true mu ya bakıyoruz, evet ise show:false yapıp sonra araya bir timeout süresi ekleyip -yarım saniye verdim - bekletip sonra diğer mesajı gösteriyoruz
@@ -82,32 +78,11 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({commit}){
-    const fakeProductsApi =  this.$axios.get('https://fakestoreapi.com/products')
-    //console.log(response.data[1].category);
-    // const products = response.data
+    const fakeProductsApi = await this.$axios.get('https://fakestoreapi.com/products')
 
-    const arrowProductsApi = this.$axios.get(
-      'http://api.arrow.com/itemservice/v4/en/search/token',
-      {
-        params: {
-          search_token: 'bav99-7-',
-          login: 'kmc-grup',
-          apikey:
-            '337bbb7e77e9fff93546c6749e76a42f82b42ab829c62e7b1ef56690a88d14f2',
-        },
-      }
-    )
-    const [fakeProductResponse, arrowResponse] = await Promise.all([
-      fakeProductsApi,
-      arrowProductsApi,
-    ])
-
-    const fakeProducts = fakeProductResponse.data
-    const arrowProducts = arrowResponse.data.itemserviceresult.data
-    // console.log('arrow response: ', arrowProducts);  
+    const fakeProducts = fakeProductsApi.data
 
     commit('setProducts', fakeProducts)
-    commit('setArrowProducts', arrowProducts)
   },
   
   addProductToCart({commit, state}, product){
