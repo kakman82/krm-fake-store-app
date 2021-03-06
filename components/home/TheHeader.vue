@@ -4,10 +4,10 @@
       <v-row align="center" justify="center">
         <!-- bu şekilde sayfanın mobil tablet yada web olmasına göre header ın görünüm büyüklüğünü ayarlayabiliyoruz hidden hariç gibi düşünülebilir gizli -->
         <h1 class="text-center display-3 hidden-xs-only">
-          Welcome to KRM - Fake Store App
+          Welcome to KeReM - Fake Store App
         </h1>
         <h1 class="text-center display-1 hidden-sm-and-up">
-          Welcome to KRM - Fake Store App
+          Welcome to KeReM - Fake Store App
         </h1>
       </v-row>
     </v-container>
