@@ -1,4 +1,4 @@
-# KMC-Katalog
+# KRM- Fake Store App
 
 ## Build Setup
 
