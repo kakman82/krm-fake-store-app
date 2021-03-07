@@ -1,6 +1,6 @@
 export default {
   // bu ikisi netlify e deploy için gerekli: https://www.netlify.com/blog/2020/09/10/the-new-target-static-mode-in-nuxt/
-  // target:'static',
+  target:'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - KRM-Fake Store',
