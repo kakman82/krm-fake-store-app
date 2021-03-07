@@ -1,1 +1,1 @@
-web: nuxt generate && nuxt start
+web: nuxt start

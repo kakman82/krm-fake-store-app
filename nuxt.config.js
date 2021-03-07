@@ -1,6 +1,6 @@
 export default {
   // bu ikisi netlify e deploy için gerekli: https://www.netlify.com/blog/2020/09/10/the-new-target-static-mode-in-nuxt/
-  target:'static',
+  // target:'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - KRM-Fake Store',
@@ -50,11 +50,7 @@ export default {
     // credentials: false
   },
 
-  proxy: {
-    // '/api/': 'http://api.arrow.com',
-    // '/api/': 'http://api.example.com',
 
-  },
 
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -80,14 +76,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  // server: {
-  //   host: '0',
-  //   port: 9000
-  // },
-  // arrow.com u store actions da nuxtserverinit içinde çağırınca buna gerek kalmadı ki zaten de işe yaramadı :) 
-  // axios: {
-  //   baseURL: 'https://api.arrow.com',
-  //   proxyHeaders: false,
-  //   credentials: false
-  // }
+  server: {
+    host:  '0',
+    port: process.env.PORT || 9000
+  },
+
 }
