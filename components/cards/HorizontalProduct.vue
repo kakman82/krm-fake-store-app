@@ -18,7 +18,7 @@
               <div>
                 <v-card-title>{{ product.title }}</v-card-title>
                 <v-card-subtitle
-                  >Unit Price: ₺ {{ product.price }}</v-card-subtitle
+                  >Unit Price: $ {{ product.price }}</v-card-subtitle
                 >
                 <v-card-subtitle class="mt-n8">Stock: 10</v-card-subtitle>
               </div>
@@ -54,7 +54,7 @@
               </div>
               <div class="d-flex align-center" style="width: 120px">
                 <v-card-title class="text-body-1 font-weight-bold"
-                  >₺ {{ productTotal }}</v-card-title
+                  >$ {{ productTotal }}</v-card-title
                 >
               </div>
 
