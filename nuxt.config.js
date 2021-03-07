@@ -80,10 +80,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  server: {
-    host: '0',
-    port: 9000
-  },
+  // server: {
+  //   host: '0',
+  //   port: 9000
+  // },
   // arrow.com u store actions da nuxtserverinit içinde çağırınca buna gerek kalmadı ki zaten de işe yaramadı :) 
   // axios: {
   //   baseURL: 'https://api.arrow.com',
